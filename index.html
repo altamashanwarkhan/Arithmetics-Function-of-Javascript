@@ -1,1 +1,168 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Js Tutorial for Mathematics</h1>
+    <script>
+      //To make a Arithimatic Counting
+      function Counting(num) {
+        for (let i = 0; i <= 9; i++) {
+          document.write(`${num + i}`);
+          document.write("<br>");
+        }
+      }
+      let Count = Counting;
+
+      //To make a Arithimatic Table
+      function Table(num) {
+        for (let i = 1; i <= 10; i++) {
+          document.write(`${num} * ${i} = ${num * i}`);
+          document.write("<br>");
+        }
+      }
+
+      //To add Many Numbers
+
+      function addNumbers() {
+        let sum = 0;
+
+        for (let i = 0; i < arguments.length; i++) {
+          sum += arguments[i];
+        }
+
+        document.write(sum);
+      }
+
+      //To Subtract Many Number
+      function subtractNumbers() {
+        if (arguments.length < 2) {
+          throw new Error(
+            "At least two arguments are required for subtraction."
+          );
+        }
+
+        let result = arguments[0];
+
+        for (let i = 1; i < arguments.length; i++) {
+          result -= arguments[i];
+        }
+
+        document.write(result);
+      }
+
+      //To Multiply Many Numbers
+      function multiplyNumbers() {
+        if (arguments.length < 2) {
+          throw new Error(
+            "At least two arguments are required for multiplication."
+          );
+        }
+
+        let result = 1;
+
+        for (let i = 0; i < arguments.length; i++) {
+          result *= arguments[i];
+        }
+
+        document.write(result);
+      }
+
+      //To Divide Many Numbers
+      function divideNumbers(...numbers) {
+        if (numbers.length === 0) {
+          throw new Error("At least one number is required for division.");
+        }
+
+        let result = numbers[0];
+
+        for (let i = 1; i < numbers.length; i++) {
+          if (numbers[i] === 0) {
+            throw new Error("Division by zero is not allowed.");
+          }
+          result /= numbers[i];
+        }
+
+        document.write(result);
+      }
+
+      // To Make Square Number
+      function squareNumbers(number) {
+        document.write(number * number);
+      }
+
+      // To Make Any Number Power
+      function Power(number, power) {
+        document.write(Math.pow(number, power));
+      }
+
+      //To Make square root
+      function squareRootNumbers(number) {
+        if (number < 0) {
+          throw new Error(
+            "Cannot calculate the square root of a negative number."
+          );
+        }
+
+        document.write(Math.sqrt(number));
+      }
+
+      //To Make Factorization
+      function Factorize(number) {
+        const factors = [];
+
+        while (number % 2 === 0) {
+          factors.push(2);
+          number /= 2;
+        }
+        for (let i = 3; i <= Math.sqrt(number); i += 2) {
+          while (number % i === 0) {
+            factors.push(i);
+            number /= i;
+          }
+        }
+        if (number > 1) {
+          factors.push(number);
+        }
+
+        document.write(factors);
+      }
+
+      //To calculate the LCM and HCF
+      function calculateLCMAndHCF(...numbers) {
+        if (numbers.length < 2) {
+          console.log("At least two numbers are required.");
+          return;
+        }
+
+        let lcm = numbers[0];
+        let hcf = numbers[0];
+
+        for (let i = 1; i < numbers.length; i++) {
+          const currentNumber = numbers[i];
+
+          // Calculate LCM
+          lcm = (lcm * currentNumber) / calculateHCF(lcm, currentNumber);
+
+          // Calculate HCF
+          hcf = calculateHCF(hcf, currentNumber);
+        }
+
+        document.write(`LCM: ${lcm}`);
+        document.write("<br>");
+        document.write(`HCF: ${hcf}`);
+      }
+
+      function calculateHCF(a, b) {
+        if (b === 0) return a;
+        return calculateHCF(b, a % b);
+      }
+
+      //To show the result of Counting/Table/Power/addNumbers/subtractNumbers/multiplyNumbers/divideNumbers/squareNumbers/squareRootNumbers/Factorize/calculateLCMAndHCF
+      Table(3236645261);
+    </script>
+  </body>
+</html>
